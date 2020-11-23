@@ -25,9 +25,8 @@ public class InstantMessage extends SendContent {
     }
 
     /**
-     * If equals 0 then play until received new command
-     *
-     * @param times
+     * Set loop times.
+     * @param times If equals 0 then play until received new command
      */
     public void setLoopTime(short times) {
         this.loopTime = PacketUtils.getShortArray(times);
@@ -63,9 +62,8 @@ public class InstantMessage extends SendContent {
     }
 
     /**
-     * The smaller the value, the faster
-     *
-     * @param speed
+     * Set speed
+     * @param speed The smaller the value, the faster
      */
     public void setSpeed(byte speed) {
         this.speed = speed;

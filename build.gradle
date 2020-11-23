@@ -1,0 +1,80 @@
+plugins {
+    id "com.jfrog.bintray" version "1.8.5"
+    id "maven-publish"
+    id "java-library"
+}
+
+group 'vn7.cpower-controller'
+version  '1.0.0'
+
+javadoc.options.encoding = 'UTF-8'
+compileJava.options.encoding = 'UTF-8'
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+
+repositories {
+    mavenLocal()
+    mavenCentral()
+    jcenter()
+}
+
+tasks.register("sourcesJar", Jar) {
+    from sourceSets.main.allJava
+    classifier "sources"
+}
+
+tasks.register("javadocJar", Jar) {
+    from javadoc
+    classifier "javadoc"
+}
+
+publishing {
+    publications {
+        mavenJava(MavenPublication) {
+            from components.java
+            artifact sourcesJar
+            artifact javadocJar
+            pom {
+                name = "cpower-controller"
+                description = "A lib for CPower LED display"
+                url = "https://github.com/vn7n24fzkq/CPower-Controller"
+                licenses {
+                    license {
+                        name = "MIT"
+                        url = "https://github.com/vn7n24fzkq/CPower-Controller/blob/main/LICENSE"
+                    }
+                }
+                developers {
+                    developer {
+                        id = "vn7"
+                        name = "Casper"
+                        email = "vn7n24fkq@gmail.com"
+                    }
+                }
+                scm {
+                    connection = "scm:git:https://github.com/vn7n24fzkq/CPower-Controller.git"
+                    developerConnection = "scm:git:https://github.com/vn7n24fzkq/CPower-Controller.git"
+                    url = "https://github.com/vn7n24fzkq/CPower-Controller"
+                }
+            }
+        }
+    }
+}
+
+bintray {
+    user = property('bintrayUser')
+    key = property('bintrayApiKey')
+    publications = ['mavenJava']
+    pkg {
+        repo = 'CPower-Controller'
+        name = 'cpower-controller'
+        userOrg = 'vn7n24fzkq'
+        licenses = ['MIT']
+        vcsUrl = 'https://github.com/vn7n24fzkq/CPower-Controller.git'
+    }
+}
+
+dependencies {
+    // Use JUnit test framework.
+    testImplementation 'junit:junit:4.13'
+}
