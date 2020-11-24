@@ -1,5 +1,8 @@
 ## CPower Controller
 
+[![License: MIT](https://img.shields.io/badge/License-MIT-green.svg?style=for-the-badge)](https://github.com/vn7n24fzkq/CPower-Controller/blob/master/LICENSE)
+![release](https://img.shields.io/github/v/release/vn7n24fzkq/CPower-Controller?style=for-the-badge)
+
 Because there many problem by using CP5200.dll for me, so I write this lib to control CPower LED display by implement the protocol.
 
 However, it is found that the TCP/IP instant messaging protocol is different from the document, and when you implement other parts of the protocol, you should be noted that there may be the same problem.
@@ -11,6 +14,36 @@ Only implement instant message function.
 但發現 TCP/IP instant message protocol 與文件上不一樣, 實作其他部分應注意可能有一樣的問題
 
 只有實作 instant message 的功能 其他功能並未實作
+
+## Quickstart
+
+### Add dependency
+
+#### Maven
+
+```xml
+<dependency>
+    <groupId>io.javalin</groupId>
+    <artifactId>javalin</artifactId>
+    <version>3.12.0</version>
+</dependency>
+```
+
+#### Gradle
+
+```groovy
+implementation 'vn7.cpower-controller:cpower-controller:1.0.0'
+```
+
+### Ivy
+
+```ivy
+<dependency org="vn7.cpower-controller" name="cpower-controller" rev="1.0.0">
+	<artifact name="cpower-controller" ext="pom"></artifact>
+</dependency>
+```
+
+### Example
 
 ```java
 
