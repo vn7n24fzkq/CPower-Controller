@@ -35,10 +35,10 @@ public class CPowerController {
     }
 
     public void connect(String ip, int port) throws IOException {
-        if (socket.isConnected()) { // if already exist a connect, we disconnect it
+        if (isConnected()) { // if already exist a connect, we disconnect it
             disconnect();
         }
-        socket.connect(new InetSocketAddress(ip, port));
+        socket = new Socket(ip, port);
         in = new BufferedInputStream(socket.getInputStream());
         out = new BufferedOutputStream(socket.getOutputStream());
     }
