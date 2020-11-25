@@ -62,8 +62,8 @@ publishing {
 }
 
 bintray {
-    user = property('bintrayUser')
-    key = property('bintrayApiKey')
+    user = bintrayUser
+    key = bintrayApiKey
     publications = ['mavenJava']
     pkg {
         repo = 'CPower-Controller'
