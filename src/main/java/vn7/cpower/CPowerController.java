@@ -42,8 +42,19 @@ public class CPowerController {
         out = new BufferedOutputStream(socket.getOutputStream());
     }
 
+    public boolean isConnected() {
+        return socket.isConnected();
+    }
+
     public void disconnect() throws IOException {
         socket.close();
     }
 
+    public void setTimeout(int timeout) throws SocketException {
+        socket.setSoTimeout(timeout);
+    }
+
+    public int getTimeout() throws SocketException {
+        return socket.getSoTimeout();
+    }
 }
