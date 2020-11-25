@@ -2,7 +2,6 @@ package vn7.cpower.content;
 
 import vn7.cpower.PacketUtils;
 import vn7.cpower.exception.CPowerSettingException;
-
 import java.nio.charset.Charset;
 
 public class InstantMessage extends SendContent {
@@ -12,7 +11,8 @@ public class InstantMessage extends SendContent {
     byte[] width = new byte[]{0x00, 0x20};// if equals 0 then play until received new command
     byte[] height = new byte[]{0x00, 0x20};// if equals 0 then play until received new command
     byte speed = (byte) 0x00; // 00 to ff, 00 is the fastest
-    byte stay = (byte)0x03; // sec
+    byte stay = (byte) 0x03; // sec
+    InstantMessageAlignment align = InstantMessageAlignment.Left; // sec
     byte colorAndFontSize = 0x72; // hi 4 bit is color, and low 4 bit is size
     String text = "";
 
@@ -26,6 +26,7 @@ public class InstantMessage extends SendContent {
 
     /**
      * Set loop times.
+     *
      * @param times If equals 0 then play until received new command
      */
     public void setLoopTime(short times) {
@@ -54,7 +55,7 @@ public class InstantMessage extends SendContent {
             throw new CPowerSettingException("size should smaller than 8 !!");
         }
         colorAndFontSize &= 0b11110000;
-        colorAndFontSize |=size;
+        colorAndFontSize |= size;
     }
 
     public byte getColorAndFontSize() {
@@ -77,8 +78,17 @@ public class InstantMessage extends SendContent {
         return PacketUtils.byteArrayToShort(this.height);
     }
 
+    public void setAlignment(InstantMessageAlignment align) {
+        this.align = align;
+    }
+
+    public InstantMessageAlignment getPosition() {
+        return align;
+    }
+
     /**
      * Set speed
+     *
      * @param speed The smaller the value, the faster
      */
     public void setSpeed(byte speed) {
@@ -104,6 +114,9 @@ public class InstantMessage extends SendContent {
 
         // I don't know what does these bytes do
         data[2] = 0x77;
+
+        //set text position
+        data[15] = align.value;
 
         data[10] = width[1]; // width hi byte
         data[11] = width[0]; // width lo byte

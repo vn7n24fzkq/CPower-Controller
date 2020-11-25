@@ -59,7 +59,7 @@ instantMessage.setColor(true,false,false);
 instantMessage.setEffect(InstantMessageEffect.Draw);
 instantMessage.setSize((byte)0x02);
 instantMessage.setLoopTime((short) 3);
-
+instantMessage.setAlignment(InstantMessageAlignment.Center);
 // send data to CPower
 cPowerController.send(instantMessage);
 
