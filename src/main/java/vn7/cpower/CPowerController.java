@@ -5,6 +5,7 @@ import vn7.cpower.content.InstantMessage;
 import java.io.BufferedInputStream;
 import java.io.BufferedOutputStream;
 import java.io.IOException;
+import java.net.InetSocketAddress;
 import java.net.Socket;
 import java.net.SocketException;
 
@@ -16,7 +17,7 @@ public class CPowerController {
 
     public boolean send(InstantMessage instantMessage) throws IOException {
         cPowerPacket.setContent(instantMessage);
-        if (socket == null || !socket.isConnected()) {
+        if (!isConnected()) {
             throw new SocketException("Not connect yet");
         }
 
@@ -34,16 +35,16 @@ public class CPowerController {
     }
 
     public void connect(String ip, int port) throws IOException {
-        if (socket != null) { // if already exist a connect, we disconnect it
+        if (socket.isConnected()) { // if already exist a connect, we disconnect it
             disconnect();
         }
-        socket = new Socket(ip, port);
+        socket.connect(new InetSocketAddress(ip, port));
         in = new BufferedInputStream(socket.getInputStream());
         out = new BufferedOutputStream(socket.getOutputStream());
     }
 
     public boolean isConnected() {
-        return socket.isConnected();
+        return (socket != null) && socket.isConnected();
     }
 
     public void disconnect() throws IOException {
