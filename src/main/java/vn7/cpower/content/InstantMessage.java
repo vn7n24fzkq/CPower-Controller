@@ -3,8 +3,6 @@ package vn7.cpower.content;
 import vn7.cpower.PacketUtils;
 import vn7.cpower.exception.CPowerSettingException;
 
-import java.nio.ByteBuffer;
-import java.nio.ByteOrder;
 import java.nio.charset.Charset;
 
 public class InstantMessage extends SendContent {
@@ -15,7 +13,7 @@ public class InstantMessage extends SendContent {
     byte[] height = new byte[]{0x00, 0x20};// if equals 0 then play until received new command
     byte speed = (byte) 0x00; // 00 to ff, 00 is the fastest
     byte stay = (byte)0x03; // sec
-    byte colorAndSize = 0x72; // hi 4 bit is color, and low 4 bit is size
+    byte colorAndFontSize = 0x72; // hi 4 bit is color, and low 4 bit is size
     String text = "";
 
     public void setEffect(InstantMessageEffect effect) {
@@ -39,28 +37,28 @@ public class InstantMessage extends SendContent {
     }
 
     public void setColor(boolean red, boolean green, boolean blue) {
-        colorAndSize &= 0b00001111;
+        colorAndFontSize &= 0b00001111;
         if (red) {
-            colorAndSize |= 0b00010000;
+            colorAndFontSize |= 0b00010000;
         }
         if (green) {
-            colorAndSize |= 0b00100000;
+            colorAndFontSize |= 0b00100000;
         }
         if (blue) {
-            colorAndSize |= 0b01000000;
+            colorAndFontSize |= 0b01000000;
         }
     }
 
-    public void setSize(byte size) throws CPowerSettingException {
+    public void setFontSize(byte size) throws CPowerSettingException {
         if (size >= (byte) 0x08) {
             throw new CPowerSettingException("size should smaller than 8 !!");
         }
-        colorAndSize &= 0b11110000;
-        colorAndSize |=size;
+        colorAndFontSize &= 0b11110000;
+        colorAndFontSize |=size;
     }
 
-    public byte getColorAndSize() {
-        return colorAndSize;
+    public byte getColorAndFontSize() {
+        return colorAndFontSize;
     }
 
     public void setWidth(short width) {
@@ -120,7 +118,7 @@ public class InstantMessage extends SendContent {
 
         data[5] = loopTime[0]; //set loop time
         data[6] = loopTime[1]; //set loop time
-        data[14] = colorAndSize; // set color and size
+        data[14] = colorAndFontSize; // set color and size
         data[19] = effect.value; // set effect
         data[20] = speed; // set speed
         data[21] = stay;
