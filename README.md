@@ -23,22 +23,23 @@ Only implement instant message function.
 
 ```xml
 <dependency>
-    <groupId>io.javalin</groupId>
-    <artifactId>javalin</artifactId>
-    <version>3.12.0</version>
+	<groupId>vn7.cpower-controller</groupId>
+	<artifactId>cpower-controller</artifactId>
+	<version>1.1.1</version>
+	<type>pom</type>
 </dependency>
 ```
 
 #### Gradle
 
 ```groovy
-implementation 'vn7.cpower-controller:cpower-controller:1.0.0'
+implementation 'vn7.cpower-controller:cpower-controller:1.1.1'
 ```
 
 ### Ivy
 
 ```ivy
-<dependency org="vn7.cpower-controller" name="cpower-controller" rev="1.0.0">
+<dependency org="vn7.cpower-controller" name="cpower-controller" rev="1.1.1">
 	<artifact name="cpower-controller" ext="pom"></artifact>
 </dependency>
 ```
