@@ -11,6 +11,8 @@ public class InstantMessage extends SendContent {
 
     InstantMessageEffect effect = InstantMessageEffect.Draw;
     byte[] loopTime = new byte[]{0x00, 0x03};// if equals 0 then play until received new command
+    byte[] width = new byte[]{0x00, 0x20};// if equals 0 then play until received new command
+    byte[] height = new byte[]{0x00, 0x20};// if equals 0 then play until received new command
     byte speed = (byte) 0x00; // 00 to ff, 00 is the fastest
     byte stay = (byte)0x03; // sec
     byte colorAndSize = 0x72; // hi 4 bit is color, and low 4 bit is size
@@ -61,6 +63,22 @@ public class InstantMessage extends SendContent {
         return colorAndSize;
     }
 
+    public void setWidth(short width) {
+        this.width = PacketUtils.getShortArray(width);
+    }
+
+    public short getWidth() {
+        return PacketUtils.byteArrayToShort(this.width);
+    }
+
+    public void setHeight(short height) {
+        this.height = PacketUtils.getShortArray(height);
+    }
+
+    public short getHeight() {
+        return PacketUtils.byteArrayToShort(this.height);
+    }
+
     /**
      * Set speed
      * @param speed The smaller the value, the faster
@@ -88,8 +106,12 @@ public class InstantMessage extends SendContent {
 
         // I don't know what does these bytes do
         data[2] = 0x77;
-        data[11] = 0x20;
-        data[13] = 0x20;
+
+        data[10] = width[1]; // width hi byte
+        data[11] = width[0]; // width lo byte
+
+        data[12] = height[1]; // height hi byte
+        data[13] = height[0]; // height lo byte
 
         // set content length
         byte[] contentLengthInLittleEndian = PacketUtils.getLittleEndian(textByteArray.length + 22);
