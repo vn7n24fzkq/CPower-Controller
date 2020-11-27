@@ -3,7 +3,7 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg?style=for-the-badge)](https://github.com/vn7n24fzkq/CPower-Controller/blob/master/LICENSE)
 ![release](https://img.shields.io/github/v/release/vn7n24fzkq/CPower-Controller?style=for-the-badge)
 
-Because there many problem by using CP5200.dll for me, so I write this lib to control CPower LED display by implement the protocol.
+Because there are many problems by using CP5200.dll for me, so I write this lib to control CPower LED display by implement the protocol.
 
 However, it is found that the TCP/IP instant messaging protocol is different from the document, and when you implement other parts of the protocol, you should be noted that there may be the same problem.
 
