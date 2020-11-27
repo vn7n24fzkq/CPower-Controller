@@ -1,7 +1,7 @@
-package vn7.cpower.content;
+package io.github.vn7n24fzkq.cpower.content;
 
-import vn7.cpower.PacketUtils;
-import vn7.cpower.exception.CPowerSettingException;
+import io.github.vn7n24fzkq.cpower.PacketUtils;
+import io.github.vn7n24fzkq.cpower.exception.CPowerSettingException;
 import java.nio.charset.Charset;
 
 public class InstantMessage extends SendContent {

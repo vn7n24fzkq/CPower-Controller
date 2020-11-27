@@ -1,4 +1,4 @@
-package vn7.cpower.content;
+package io.github.vn7n24fzkq.cpower.content;
 
 public enum InstantMessageAlignment {
     Left((byte) 0),
