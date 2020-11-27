@@ -1,6 +1,6 @@
-package vn7.cpower;
+package io.github.vn7n24fzkq.cpower;
 
-import vn7.cpower.content.SendContent;
+import io.github.vn7n24fzkq.cpower.content.SendContent;
 
 public class CPowerSendPacket {
     byte[] IDCode = new byte[]{(byte) 0xff, (byte) 0xff, (byte) 0xff, (byte) 0xff};

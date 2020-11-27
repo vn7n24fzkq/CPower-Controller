@@ -4,7 +4,7 @@ plugins {
     id "java-library"
 }
 
-group 'vn7.cpower-controller'
+group 'io.github.vn7n24fzkq.cpower-controller'
 version  '1.2.2'
 
 javadoc.options.encoding = 'UTF-8'

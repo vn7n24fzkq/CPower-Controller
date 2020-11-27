@@ -1,6 +1,6 @@
-package vn7.cpower;
+package io.github.vn7n24fzkq.cpower;
 
-import vn7.cpower.content.InstantMessage;
+import io.github.vn7n24fzkq.cpower.content.InstantMessage;
 
 import java.io.BufferedInputStream;
 import java.io.BufferedOutputStream;

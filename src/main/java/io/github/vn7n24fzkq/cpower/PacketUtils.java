@@ -1,4 +1,4 @@
-package vn7.cpower;
+package io.github.vn7n24fzkq.cpower;
 
 import java.nio.ByteBuffer;
 import java.nio.ByteOrder;
