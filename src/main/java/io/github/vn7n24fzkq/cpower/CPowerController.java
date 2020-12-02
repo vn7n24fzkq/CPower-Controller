@@ -1,6 +1,7 @@
 package io.github.vn7n24fzkq.cpower;
 
 import io.github.vn7n24fzkq.cpower.content.InstantMessage;
+import io.github.vn7n24fzkq.cpower.exception.CPowerSettingException;
 
 import java.io.BufferedInputStream;
 import java.io.BufferedOutputStream;
@@ -33,11 +34,29 @@ public class CPowerController {
         return rec[5] > 0;
     }
 
-    public void connect(String ip, int port) throws IOException {
+    /**
+     * @param ip   example : "192.168.1.50"
+     * @param port example : 5200
+     * @param mask example : "255.255.255.255"
+     * @throws IOException
+     * @throws CPowerSettingException
+     */
+    public void connect(String ip, int port, String mask) throws IOException, CPowerSettingException {
         if (isConnected()) { // if already exist a connect, we disconnect it
             disconnect();
         }
         socket = new Socket(ip, port);
+        String[] maskArray = mask.split("\\.");
+        if (maskArray.length != 4) {
+            throw new CPowerSettingException("Invalid mask format");
+        } else {
+            byte[] maskIntArray = new byte[4];
+            for (int i = 0; i < maskIntArray.length; i++) {
+                maskIntArray[i] = Byte.parseByte(maskArray[i]);
+            }
+            cPowerPacket.setMask(maskIntArray[0], maskIntArray[1], maskIntArray[2], maskIntArray[3]);
+        }
+
         in = new BufferedInputStream(socket.getInputStream());
         out = new BufferedOutputStream(socket.getOutputStream());
     }

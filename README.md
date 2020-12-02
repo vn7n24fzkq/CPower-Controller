@@ -50,7 +50,7 @@ implementation 'io.github.vn7n24fzkq.cpower-controller:cpower-controller:1.3.0'
 
 // create a controller object
 CPowerController cPowerController = new CPowerController();
-cPowerController.connect("192.168.1.222", 5200);
+cPowerController.connect("192.168.1.222", 5200, "255.255.255.255");
 
 // create instant message
 InstantMessage instantMessage = new InstantMessage();

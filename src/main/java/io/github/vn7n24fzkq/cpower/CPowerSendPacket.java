@@ -45,6 +45,12 @@ public class CPowerSendPacket {
         return data;
     }
 
+    public void setMask(byte mask1, byte mask2, byte mask3, byte mask4) {
+        IDCode[0] = mask1;
+        IDCode[1] = mask2;
+        IDCode[2] = mask3;
+        IDCode[3] = mask4;
+    }
 
     public void setContent(SendContent content) {
         this.content = content;
