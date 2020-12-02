@@ -25,7 +25,7 @@ Only implement instant message function.
 <dependency>
 	<groupId>io.github.vn7n24fzkq.cpower-controller</groupId>
 	<artifactId>cpower-controller</artifactId>
-	<version>1.3.0</version>
+	<version>1.3.1</version>
 	<type>pom</type>
 </dependency>
 ```
@@ -33,13 +33,13 @@ Only implement instant message function.
 #### Gradle
 
 ```groovy
-implementation 'io.github.vn7n24fzkq.cpower-controller:cpower-controller:1.3.0'
+implementation 'io.github.vn7n24fzkq.cpower-controller:cpower-controller:1.3.1'
 ```
 
 ### Ivy
 
 ```ivy
-<dependency org="io.github.vn7n24fzkq.cpower-controller" name="cpower-controller" rev="1.3.0">
+<dependency org="io.github.vn7n24fzkq.cpower-controller" name="cpower-controller" rev="1.3.1">
 	<artifact name="cpower-controller" ext="pom"></artifact>
 </dependency>
 ```
