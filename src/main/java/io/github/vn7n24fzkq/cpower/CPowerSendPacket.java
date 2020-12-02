@@ -45,7 +45,7 @@ public class CPowerSendPacket {
         return data;
     }
 
-    public void setMask(byte mask1, byte mask2, byte mask3, byte mask4) {
+    public void setMask(byte mask4, byte mask3, byte mask2, byte mask1) {
         IDCode[0] = mask1;
         IDCode[1] = mask2;
         IDCode[2] = mask3;
