@@ -38,8 +38,8 @@ public class CPowerController {
      * @param ip   example : "192.168.1.50"
      * @param port example : 5200
      * @param mask example : "255.255.255.255"
-     * @throws IOException
-     * @throws CPowerSettingException
+     * @throws IOException Socket connect error
+     * @throws CPowerSettingException Invalid mask format
      */
     public void connect(String ip, int port, String mask) throws IOException, CPowerSettingException {
         if (isConnected()) { // if already exist a connect, we disconnect it
