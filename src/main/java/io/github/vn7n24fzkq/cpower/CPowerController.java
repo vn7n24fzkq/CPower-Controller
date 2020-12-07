@@ -52,7 +52,7 @@ public class CPowerController {
         } else {
             byte[] maskIntArray = new byte[4];
             for (int i = 0; i < maskIntArray.length; i++) {
-                maskIntArray[i] = Byte.parseByte(maskArray[i]);
+                maskIntArray[i] = (byte)Integer.parseInt(maskArray[i]);
             }
             cPowerPacket.setMask(maskIntArray[0], maskIntArray[1], maskIntArray[2], maskIntArray[3]);
         }
