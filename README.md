@@ -2,6 +2,7 @@
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg?style=for-the-badge)](https://github.com/vn7n24fzkq/CPower-Controller/blob/master/LICENSE)
 ![release](https://img.shields.io/github/v/release/vn7n24fzkq/CPower-Controller?style=for-the-badge)
+[ ![Download](https://api.bintray.com/packages/vn7n24fzkq/CPower-Controller/cpower-controller/images/download.svg) ](https://bintray.com/vn7n24fzkq/CPower-Controller/cpower-controller/_latestVersion)
 
 Because there are many problems by using CP5200.dll for me, so I write this lib to control CPower LED display by implement the protocol.
 
